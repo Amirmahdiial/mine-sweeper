@@ -1,10 +1,8 @@
-
-
-.container{
+.container {
     width: 500px;
 }
 
-.grid{
+.grid {
     height: 400px;
     width: 400px;
     display: flex;
@@ -16,35 +14,48 @@
     margin-bottom: 10px;
 }
 
-
-div{
+div {
     font-size: 25px;
     text-align: center;
-    font-family: "roboto mono" ,monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
-.valid, .bomb{
+.valid, .bomb {
     width: 40px;
     height: 40px;
     border: 5px solid;
     border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;  
     box-sizing: border-box;
 }
-.checked{
+
+.checked {
     width: 40px;
     height: 40px;
     border: 2px solid #9c998d;
     box-sizing: border-box;
 }
-.one{
+
+.one {
     color: #e76346;
+    border: 2px solid #9c998d;
 }
-.two{
+
+.two {
     color: #4199d3;
+    border: 2px solid #9c998d;
 }
-.three{
+
+.three {
     color: #57da59;
+    border: 2px solid #9c998d;
 }
-.four{
+
+.four {
     color: #bb41d3;
+    border: 2px solid #9c998d;
+}
+
+.flag {
+    color: #ff0000; /* Red flag */
+    font-size: 30px;
 }
