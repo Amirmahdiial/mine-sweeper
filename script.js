@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
               click(square);
           });
           
-          square.addEventListener("contextmenu", function () {
+          square.addEventListener("contextmenu", function (e) {
+             e.preventDefault();
               addFlag(square);
           });
       }
@@ -93,22 +94,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addFlag(square) {
-      if (isGameOver) return;
-      if (!square.classList.contains('checked')&& (flags < bombAmount)) {
-          if (!square.classList.contains('flag')) {
-              square.classList.add('flag');
-              flags++;
-              square.innerHTML = '🚩';
-              flagsLeft.innerHTML = bombAmount - flags;
-              checkForWin();
-          } else {
-              square.classList.remove('flag');
-              flags--;
-              square.innerHTML = '';
-              flagsLeft.innerHTML = bombAmount - flags;
-          }
-      }
-  }
+    if (isGameOver) return;
+    if (!square.classList.contains('checked')) {
+        if (!square.classList.contains('flag') && flags < bombAmount) {
+            square.classList.add('flag');
+            flags++;
+            square.innerHTML = '🚩';
+            flagsLeft.innerHTML = bombAmount - flags;
+            checkForWin();
+        } else if (square.classList.contains('flag')) {
+            square.classList.remove('flag');
+            flags--;
+            square.innerHTML = '';
+            flagsLeft.innerHTML = bombAmount - flags;
+        }
+    }
+}
+
 
   function checkSquare(square) {
       const currentId = square.id;
